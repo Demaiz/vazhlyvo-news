@@ -1,0 +1,6 @@
+.idea/
+news/__pycache__/
+news/migrations/__pycache__/
+vazhlyvo/.env
+vazhlyvo/__pycache__/
+db.sqlite3
