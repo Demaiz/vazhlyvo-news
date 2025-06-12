@@ -4,3 +4,4 @@ news/migrations/__pycache__/
 vazhlyvo/.env
 vazhlyvo/__pycache__/
 db.sqlite3
+media/
