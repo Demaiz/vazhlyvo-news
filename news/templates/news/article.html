@@ -1,0 +1,14 @@
+{% extends 'news/base.html' %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% block content %}
+            <h1>{{article.title}}</h1>
+            {{article.text|safe}}
+        {% endblock %}
+    </body>
+</html>

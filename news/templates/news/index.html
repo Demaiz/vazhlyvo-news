@@ -9,7 +9,7 @@
         {% block content %}
         <ul>
             {% for article in articles %}
-                <li><a href = "#">{{article.title}}</a></li><br>
+                <li><a href = "{% url 'article' article_title=article.slug article_id=article.id %}">{{article.title}}</a></li><br>
             {% endfor %}
         </ul>
         {% endblock %}
