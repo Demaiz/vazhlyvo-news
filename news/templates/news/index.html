@@ -1,0 +1,17 @@
+{% extends 'news/base.html' %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% block content %}
+        <ul>
+            {% for article in articles %}
+                <li><a href = "#">{{article.title}}</a></li><br>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    </body>
+</html>

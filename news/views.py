@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from .models import *
 
-# Create your views here.
+def index(request):
+    context = {
+        "articles": Article.objects.all().values()
+    }
+    return render(request, "news/index.html", context)
