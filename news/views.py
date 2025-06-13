@@ -7,7 +7,7 @@ def index(request):
 
     # add slug from the title to the dict
     for item in articles:
-        item["slug"] = slugify(item["title"])
+        item["slug"] = slugify(item["title"], allow_unicode=True)
 
     context = {
         "articles": articles
@@ -21,5 +21,5 @@ def article(request, article_title, article_id):
         "article": article
     }
 
-    return redirect("article", slugify(article.title), article_id) if slugify(article.title) != article_title \
-        else render(request, "news/article.html", context)
+    return redirect("article", slugify(article.title, allow_unicode=True), article_id) \
+        if slugify(article.title, allow_unicode=True) != article_title else render(request, "news/article.html", context)
