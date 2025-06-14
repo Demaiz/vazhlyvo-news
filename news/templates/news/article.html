@@ -7,8 +7,19 @@
     </head>
     <body>
         {% block content %}
-            <h1>{{article.title}}</h1>
-            {{article.text|safe}}
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center">
+                <div class="col-xxl-5 col-xl-7 col-md-9">
+                    <h2>{{article.title}}</h2>
+                    <h6>Автор: {{article.author}}</h6>
+                    <h6>{{article.date}}</h6>
+                    <img src="{{article.cover_image.url}}" class="img-fluid my-3" alt="cover image">      
+                    <div class="text-justify article-text">
+                        {{article.text|safe}}
+                    </div>
+                </div>
+            </div>
+        </div>
         {% endblock %}
     </body>
 </html>

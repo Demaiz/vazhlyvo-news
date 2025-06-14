@@ -9,3 +9,16 @@
 .nav-hover:hover{
     color: #474d54 !important;
 }
+
+.text-justify{
+    text-align: justify;
+}
+
+.article-text{
+    font-size: 18px;
+}
+
+.article-text p {
+    margin-bottom: 0px;
+    text-indent: 1.25cm;
+}
