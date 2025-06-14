@@ -46,8 +46,22 @@
                 </div>
             </nav>
         {% endblock %}
-        {% block content %}
-
+        {% block content %}{% endblock %}
+        {% block footer %}
+        <footer class="bg-light mt-3 d-flex justify-content-center">
+            <div class="d-flex align-items-center pt-4 flex-column">
+                <h6>Наші соціальні мережі:</h6>
+                <div class="social-medias mb-2">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src = "{% static 'news/images/instagram.svg' %}" class="social-media-icon"></a>
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><img src = "{% static 'news/images/youtube.svg' %}" class="social-media-icon"></a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src = "{% static 'news/images/facebook.svg' %}" class="social-media-icon"></a>
+                </div>
+                <h6>Адреса: м. Київ, вул. Паркова 11</h6>
+                <h6>Телефон: +380XXXXXXXXX</h6>
+                <h6>Email: XXXXXXXXX@gmail.com</h6>
+                <h6>© 2025 Важливо Новини. Усі права захищено.</h6>
+            </div>
+        </footer>
         {% endblock %}
     </body>
 </html>
