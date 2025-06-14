@@ -1,0 +1,11 @@
+.navbar-logo{
+    height: 41px;
+}
+
+.active{
+    border-bottom: 3px solid black;
+}
+
+.nav-hover:hover{
+    color: #474d54 !important;
+}
