@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.text import slugify
+from django.views.generic import ListView
+
 from .models import *
 
 def index(request):
@@ -23,3 +25,10 @@ def article(request, article_title, article_id):
 
     return redirect("article", slugify(article.title, allow_unicode=True), article_id) \
         if slugify(article.title, allow_unicode=True) != article_title else render(request, "news/article.html", context)
+
+
+class NewsListView(ListView):
+    paginate_by = 12
+    model = Article
+    ordering = ["-date"]
+    template_name = "news/news.html"
