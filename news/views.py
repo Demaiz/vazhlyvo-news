@@ -32,3 +32,4 @@ class NewsListView(ListView):
     model = Article
     ordering = ["-date"]
     template_name = "news/news.html"
+    queryset = Article.objects.filter(article_type="news")
