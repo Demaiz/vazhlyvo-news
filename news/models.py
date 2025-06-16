@@ -5,6 +5,8 @@ from django_resized import ResizedImageField
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    photo = ResizedImageField(size=[400, 400], crop=['middle', 'center'], upload_to="author_photo/")
+    role = models.CharField(max_length=130)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
