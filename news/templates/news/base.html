@@ -28,8 +28,8 @@
                             <li class="nav-item">
                                 <a class="nav-link fw-bold text-dark nav-hover" href="#">ІНТЕРВ'Ю</a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link fw-bold text-dark nav-hover" href="#">КОЛОНКИ</a>
+                            <li class="nav-item {% if request.path == '/columns/' %}active{% endif %}">
+                                <a class="nav-link fw-bold text-dark nav-hover" href="{% url 'columns' %}">КОЛОНКИ</a>
                             </li>
                         </ul>
                         <div class="nav-item dropdown pe-2">

@@ -33,3 +33,11 @@ class NewsListView(ListView):
     ordering = ["-date"]
     template_name = "news/news.html"
     queryset = Article.objects.filter(article_type="news")
+
+
+class ColumnsListView(ListView):
+    paginate_by = 14
+    model = Article
+    ordering = ["-date"]
+    template_name = "news/columns.html"
+    queryset = Article.objects.filter(article_type="column")

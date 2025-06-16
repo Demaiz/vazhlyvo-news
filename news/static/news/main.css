@@ -27,3 +27,7 @@
     height: 46px;
     margin: 12px;
 }
+
+.hover-text:hover{
+    color: #474d54;
+}
