@@ -1,6 +1,7 @@
 from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
 from django_resized import ResizedImageField
+from django.utils.translation import gettext_lazy as _
 
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
@@ -20,12 +21,18 @@ class Tag(models.Model):
 
 
 class Article(models.Model):
+    TYPE_CHOICES = [
+        ("news", _("news")),
+        ("column", _("column")),
+        ("interview", _("interview"))
+    ]
     title = models.CharField(max_length=200)
     text = CKEditor5Field(config_name="default")
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     cover_image = ResizedImageField(size=[1500, 1000], crop=['middle', 'center'], upload_to="cover_image/")
     tags = models.ManyToManyField(Tag, blank=True)
+    article_type = models.CharField(max_length=20, choices=TYPE_CHOICES)
 
     def __str__(self):
         return f"title: {self.title}, author: {self.author}"
