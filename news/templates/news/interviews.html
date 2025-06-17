@@ -1,0 +1,38 @@
+{% extends 'news/base.html' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    {% block content %}
+        <div class="container-fluid h-100 mt-2">
+            <div class="row d-flex justify-content-center mx-2">
+                <div class="col-xxl-6 col-xl-8">
+                    <div class="row">
+                        {% for article in article_list %}
+                        <div class="col-md-6 d-flex mb-3">
+                            <div class="m-2 border rounded shadow-sm d-flex flex-column w-100">
+                                <a href="{% url 'article' article_title=' ' article_id=article.id %}" class = "text-reset text-decoration-none d-flex flex-column h-100">
+                                    <img class="rounded img-fluid" src = "{{article.cover_image.url}}" alt="cover_image ">
+                                    <div class="d-flex justify-content-center">
+                                        <hr class="mx-3 w-100">
+                                    </div>
+                                    <div class="d-flex align-items-end">
+                                        <div class="row d-flex align-items-center m-2">
+                                            <h5 class="m-2 mt-0 mb-1 flex-grow-1 hover-text">{{article.title}}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% include 'news/pagination.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

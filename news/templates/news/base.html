@@ -25,8 +25,8 @@
                             <li class="nav-item {% if request.path == '/news/' %}active{% endif %}">
                                 <a class="nav-link fw-bold text-dark nav-hover" aria-current="page" href="{% url 'news' %}">НОВИНИ</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link fw-bold text-dark nav-hover" href="#">ІНТЕРВ'Ю</a>
+                            <li class="nav-item {% if request.path == '/interviews/' %}active{% endif %}">
+                                <a class="nav-link fw-bold text-dark nav-hover" href="{% url 'interviews' %}">ІНТЕРВ'Ю</a>
                             </li>
                             <li class="nav-item {% if request.path == '/columns/' %}active{% endif %}">
                                 <a class="nav-link fw-bold text-dark nav-hover" href="{% url 'columns' %}">КОЛОНКИ</a>

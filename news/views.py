@@ -41,3 +41,11 @@ class ColumnsListView(ListView):
     ordering = ["-date"]
     template_name = "news/columns.html"
     queryset = Article.objects.filter(article_type="column")
+
+
+class InterviewsListView(ListView):
+    paginate_by = 8
+    model = Article
+    ordering = ["-date"]
+    template_name = "news/interviews.html"
+    queryset = Article.objects.filter(article_type="interview")
