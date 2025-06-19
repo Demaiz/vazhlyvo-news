@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.text import slugify
+from django.views.decorators.cache import cache_page
 from django.views.generic import ListView
 
 from .models import *
@@ -16,6 +17,8 @@ def index(request):
     }
     return render(request, "news/index.html", context)
 
+
+@cache_page(60 * 15)
 def article(request, article_title, article_id):
     article = get_object_or_404(Article, pk=article_id)
 
