@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-19 18:51+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\news\models.py:25
+msgid "news"
+msgstr ""
+
+#: .\news\models.py:26
+msgid "column"
+msgstr ""
+
+#: .\news\models.py:27
+msgid "interview"
+msgstr ""
+
+#: .\news\templates\news\article.html:14
+msgid "Автор"
+msgstr "Author"
+
+#: .\news\templates\news\base.html:27
+msgid "НОВИНИ"
+msgstr "NEWS"
+
+#: .\news\templates\news\base.html:30
+msgid "ІНТЕРВ'Ю"
+msgstr "INTERVIEW"
+
+#: .\news\templates\news\base.html:33
+msgid "КОЛОНКИ"
+msgstr "COLUMNS"
+
+#: .\news\templates\news\base.html:53
+msgid "Підтримати"
+msgstr "Support"
+
+#: .\news\templates\news\base.html:64
+msgid "Наші соціальні мережі"
+msgstr "Our social media"
+
+#: .\news\templates\news\base.html:70
+msgid "Адреса: м. Київ, вул. Паркова"
+msgstr "Address: Kyiv, Parkova St."
+
+#: .\news\templates\news\base.html:71
+msgid "Телефон"
+msgstr "Phone"
+
+#: .\news\templates\news\base.html:73
+msgid "Важливо Новини. Усі права захищено"
+msgstr "Vazhlyvo News. All rights reserved"
+
+#: .\vazhlyvo\settings.py:122
+msgid "Ukrainian"
+msgstr "Українська"
+
+#: .\vazhlyvo\settings.py:123
+msgid "English"
+msgstr ""

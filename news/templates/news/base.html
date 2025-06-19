@@ -8,6 +8,7 @@
         {% bootstrap_css %}
         {% bootstrap_javascript %}
         {% load static %}
+        {% load i18n %}
         <link href="{% static 'news/main.css' %}" rel = "stylesheet">
     </head>
     <body class="d-flex flex-column min-vh-100">
@@ -22,26 +23,34 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav justify-content-center d-flex w-100 mb-2 mb-lg-0">
-                            <li class="nav-item {% if request.path == '/news/' %}active{% endif %}">
-                                <a class="nav-link fw-bold text-dark nav-hover" aria-current="page" href="{% url 'news' %}">НОВИНИ</a>
+                            <li class="nav-item {% if '/news/' in request.path %}active{% endif %}">
+                                <a class="nav-link fw-bold text-dark nav-hover" aria-current="page" href="{% url 'news' %}">{% trans "НОВИНИ" %}</a>
                             </li>
-                            <li class="nav-item {% if request.path == '/interviews/' %}active{% endif %}">
-                                <a class="nav-link fw-bold text-dark nav-hover" href="{% url 'interviews' %}">ІНТЕРВ'Ю</a>
+                            <li class="nav-item {% if '/interviews/' in request.path %}active{% endif %}">
+                                <a class="nav-link fw-bold text-dark nav-hover" href="{% url 'interviews' %}">{% trans "ІНТЕРВ'Ю" %}</a>
                             </li>
-                            <li class="nav-item {% if request.path == '/columns/' %}active{% endif %}">
-                                <a class="nav-link fw-bold text-dark nav-hover" href="{% url 'columns' %}">КОЛОНКИ</a>
+                            <li class="nav-item {% if '/columns/' in request.path %}active{% endif %}">
+                                <a class="nav-link fw-bold text-dark nav-hover" href="{% url 'columns' %}">{% trans "КОЛОНКИ" %}</a>
                             </li>
                         </ul>
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}                        
                         <div class="nav-item dropdown pe-2">
                             <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Українська
+                                <!-- display current language -->
+                                {% for language in LANGUAGES %}
+                                    {% if language.0 == LANGUAGE_CODE %}
+                                        {{language.1}}
+                                    {% endif %}
+                                {% endfor %}
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-dark" href="#">Українська</a></li>
-                                <li><a class="dropdown-item text-dark" href="#">English</a></li>
+                                {% for language in LANGUAGES %}
+                                    <li><a class="dropdown-item text-dark" href="/{{language.0}}{{request.path|slice:'3:'}}">{{language.1}}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
-                        <button type="button" class="btn btn-outline-success">Підтримати</button>
+                        <button type="button" class="btn btn-outline-success">{% trans "Підтримати" %}</button>
                     </div>
                 </div>
             </nav>
@@ -52,16 +61,16 @@
         {% block footer %}
         <footer class="bg-light mt-3 d-flex justify-content-center">
             <div class="d-flex align-items-center pt-4 flex-column">
-                <h6>Наші соціальні мережі:</h6>
+                <h6>{% trans "Наші соціальні мережі" %}:</h6>
                 <div class="social-medias mb-2">
                     <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src = "{% static 'news/images/instagram.svg' %}" class="social-media-icon"></a>
                     <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><img src = "{% static 'news/images/youtube.svg' %}" class="social-media-icon"></a>
                     <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src = "{% static 'news/images/facebook.svg' %}" class="social-media-icon"></a>
                 </div>
-                <h6>Адреса: м. Київ, вул. Паркова 11</h6>
-                <h6>Телефон: +380XXXXXXXXX</h6>
+                <h6>{% trans "Адреса: м. Київ, вул. Паркова" %} 11</h6>
+                <h6>{% trans "Телефон" %}: +380XXXXXXXXX</h6>
                 <h6>Email: XXXXXXXXX@gmail.com</h6>
-                <h6>© 2025 Важливо Новини. Усі права захищено.</h6>
+                <h6>© 2025 {% trans "Важливо Новини. Усі права захищено" %}.</h6>
             </div>
         </footer>
         {% endblock %}
