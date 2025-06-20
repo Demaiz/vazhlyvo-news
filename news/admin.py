@@ -1,9 +1,16 @@
 from django.contrib import admin
+from django_ckeditor_5.widgets import CKEditor5Widget
+from modeltranslation.admin import TranslationAdmin
 from .models import *
 
 
-class ArticleAdmin(admin.ModelAdmin):
+class ArticleAdmin(TranslationAdmin):
     fields = ["title", "text", "cover_image", "tags", "article_type"]
+
+    # display CKEditor5Widget instead of TextField
+    formfield_overrides = {
+        models.TextField: {'widget': CKEditor5Widget},
+    }
 
     # set current user as article author
     def save_model(self, request, obj, form, change):
