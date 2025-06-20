@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django_ckeditor_5.fields import CKEditor5Field
 from django_resized import ResizedImageField
 from django.utils.translation import gettext_lazy as _
 
@@ -27,7 +26,7 @@ class Article(models.Model):
         ("interview", _("interview"))
     ]
     title = models.CharField(max_length=200)
-    text = CKEditor5Field(config_name="default")
+    text = models.TextField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     cover_image = ResizedImageField(size=[1500, 1000], crop=['middle', 'center'], upload_to="cover_image/")
