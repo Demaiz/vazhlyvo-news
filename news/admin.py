@@ -14,7 +14,8 @@ class ArticleAdmin(TranslationAdmin):
 
     # set current user as article author
     def save_model(self, request, obj, form, change):
-        obj.author = Author.objects.get(user=request.user)
+        if not request.user.is_superuser:
+            obj.author = Author.objects.get(user=request.user)
         super().save_model(request, obj, form, change)
 
     # return only current user's articles; return all if superuser
@@ -23,6 +24,13 @@ class ArticleAdmin(TranslationAdmin):
         if request.user.is_superuser:
             return queryset
         return queryset.filter(author__user=request.user)
+
+    # display author field only for superusers
+    def get_fields(self, request, obj=None):
+        fields = super().get_fields(request, obj)
+        if request.user.is_superuser and "author" not in fields:
+            fields.append("author")
+        return fields
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Author)
