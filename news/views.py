@@ -6,14 +6,14 @@ from django.views.generic import ListView
 from .models import *
 
 def index(request):
-    articles = Article.objects.all().values()
-
-    # add slug from the title to the dict
-    for item in articles:
-        item["slug"] = slugify(item["title"], allow_unicode=True)
+    news = Article.objects.filter(article_type="news").order_by("-date")[:3]
+    columns = Article.objects.filter(article_type="column").order_by("-date")[:2]
+    interviews = Article.objects.filter(article_type="interview").order_by("-date")[:3]
 
     context = {
-        "articles": articles
+        "news": news,
+        "columns": columns,
+        "interviews": interviews
     }
     return render(request, "news/index.html", context)
 

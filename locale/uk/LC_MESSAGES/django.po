@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-19 18:51+0300\n"
+"POT-Creation-Date: 2025-06-21 20:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,15 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: .\news\models.py:25
+#: .\news\models.py:24
 msgid "news"
 msgstr ""
 
-#: .\news\models.py:26
+#: .\news\models.py:25
 msgid "column"
 msgstr ""
 
-#: .\news\models.py:27
+#: .\news\models.py:26
 msgid "interview"
 msgstr ""
 
@@ -69,10 +69,18 @@ msgstr ""
 msgid "Важливо Новини. Усі права захищено"
 msgstr ""
 
-#: .\vazhlyvo\settings.py:122
-msgid "Ukrainian"
+#: .\news\templates\news\index.html:40
+msgid "Інтерв'ю"
+msgstr ""
+
+#: .\news\templates\news\index.html:64
+msgid "Колонки"
 msgstr ""
 
 #: .\vazhlyvo\settings.py:123
+msgid "Ukrainian"
+msgstr "Українська"
+
+#: .\vazhlyvo\settings.py:124
 msgid "English"
-msgstr ""
+msgstr "English"
