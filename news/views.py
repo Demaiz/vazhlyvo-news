@@ -21,9 +21,11 @@ def index(request):
 @cache_page(60 * 15)
 def article(request, article_title, article_id):
     article = get_object_or_404(Article, pk=article_id)
+    recommendations = Article.objects.filter(tags__in=article.tags.all()).distinct().exclude(id=article_id).order_by("-date")[:3]
 
     context = {
-        "article": article
+        "article": article,
+        "recommendations": recommendations
     }
 
     return redirect("article", slugify(article.title, allow_unicode=True), article_id) \
