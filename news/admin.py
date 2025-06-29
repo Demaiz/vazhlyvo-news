@@ -2,6 +2,7 @@ from django.contrib import admin
 from django_ckeditor_5.widgets import CKEditor5Widget
 from modeltranslation.admin import TranslationAdmin
 from .models import *
+from django.contrib.auth.admin import UserAdmin
 
 
 class ArticleAdmin(TranslationAdmin):
@@ -32,6 +33,11 @@ class ArticleAdmin(TranslationAdmin):
             fields.append("author")
         return fields
 
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Author)
 admin.site.register(Tag)
+# unregister and register the User model to add translation fields to the admin panel
+admin.site.unregister(User)
+admin.site.register(User)
+

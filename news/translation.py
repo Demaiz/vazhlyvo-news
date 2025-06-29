@@ -15,3 +15,8 @@ class AuthorTranslationOptions(TranslationOptions):
 @register(Tag)
 class TagTranslationOptions(TranslationOptions):
     fields = ("name",)
+
+
+@register(User)
+class UserTranslationOptions(TranslationOptions):
+    fields = ("first_name", "last_name")
