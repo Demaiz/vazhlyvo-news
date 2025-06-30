@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-21 20:13+0300\n"
+"POT-Creation-Date: 2025-06-30 17:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,43 +37,47 @@ msgstr ""
 msgid "Автор"
 msgstr ""
 
-#: .\news\templates\news\base.html:27
+#: .\news\templates\news\article.html:26
+msgid "Читайте також"
+msgstr ""
+
+#: .\news\templates\news\base.html:28
 msgid "НОВИНИ"
 msgstr ""
 
-#: .\news\templates\news\base.html:30
+#: .\news\templates\news\base.html:31
 msgid "ІНТЕРВ'Ю"
 msgstr ""
 
-#: .\news\templates\news\base.html:33
+#: .\news\templates\news\base.html:34
 msgid "КОЛОНКИ"
 msgstr ""
 
-#: .\news\templates\news\base.html:53
+#: .\news\templates\news\base.html:54
 msgid "Підтримати"
 msgstr ""
 
-#: .\news\templates\news\base.html:64
+#: .\news\templates\news\base.html:65
 msgid "Наші соціальні мережі"
 msgstr ""
 
-#: .\news\templates\news\base.html:70
+#: .\news\templates\news\base.html:71
 msgid "Адреса: м. Київ, вул. Паркова"
 msgstr ""
 
-#: .\news\templates\news\base.html:71
+#: .\news\templates\news\base.html:72
 msgid "Телефон"
 msgstr ""
 
-#: .\news\templates\news\base.html:73
+#: .\news\templates\news\base.html:74
 msgid "Важливо Новини. Усі права захищено"
 msgstr ""
 
-#: .\news\templates\news\index.html:40
+#: .\news\templates\news\index.html:36
 msgid "Інтерв'ю"
 msgstr ""
 
-#: .\news\templates\news\index.html:64
+#: .\news\templates\news\index.html:59
 msgid "Колонки"
 msgstr ""
 
