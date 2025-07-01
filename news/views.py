@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.text import slugify
 from django.views.decorators.cache import cache_page
 from django.views.generic import ListView
-
+import requests
 from .models import *
 
 def index(request):
@@ -10,10 +10,14 @@ def index(request):
     columns = Article.objects.filter(article_type="column").order_by("-date")[:2]
     interviews = Article.objects.filter(article_type="interview").order_by("-date")[:3]
 
+    currency = requests.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").json()
+    currency = {item["cc"]: round(item["rate"], 2) for item in currency if item["cc"] == "EUR" or item["cc"] == "USD"}
+
     context = {
         "news": news,
         "columns": columns,
-        "interviews": interviews
+        "interviews": interviews,
+        "currency": currency
     }
     return render(request, "news/index.html", context)
 
