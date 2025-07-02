@@ -83,8 +83,15 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col-2 border-start mt-3">
-                    <h4>Офіційний курс НБУ</h4>
+                <div class="col-3 border-start mt-3">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    <div class="mb-5 border rounded" id="ww_190cb87bd5780" v='1.3' loc='auto'
+                        a='{"t":"horizontal","lang":"{{LANGUAGE_CODE}}","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#000000","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
+                        <a href="https://weatherwidget.org/uk/" id="ww_190cb87bd5780_u" target="_blank">Безкоштовний інформер погоди на сайт</a>
+                    </div>
+                    <script async src="https://app3.weatherwidget.org/js/?id=ww_190cb87bd5780"></script>
+
+                    <h5>Офіційний курс НБУ</h5>
                     <table class="table">
                         <thead>
                             <tr>
