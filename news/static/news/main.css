@@ -35,3 +35,11 @@
 .w-97{
     width: 97%;
 }
+
+.enemy-losses-total{
+    font-size: 14px;
+}
+
+.enemy-losses-increase{
+    font-size: 12px;
+}

@@ -1,5 +1,5 @@
 {% extends 'news/base.html' %}
-
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +8,18 @@
     <body>
         {% block content %}
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
+                <h5>Втрати ворога станом на {{current_day_of_war}} день</h5>
+                    {% for item in enemy_losses %}     
+                        <div class="col-1 border-start border-end d-flex flex-column px-2">
+                            <img src="{% static 'news/images/' %}{{item.img_name}}" class="img-fluid px-1">
+                           <div class="d-inline">
+                                <h6 class="d-inline enemy-losses-total">{{item.losses_total}}</h6>
+                                <h6 class="d-inline text-danger enemy-losses-increase">{% if item.losses_increase %} + {{item.losses_increase}}{% endif %}</h6>
+                           </div>
+                            <p class="mb-0">{{item.name}}</p>                            
+                        </div>
+                    {% endfor %}
                 <div class="col-xl-9 col-sm-10">
                     {% if news|length >= 3 %}
                     <div class="row mt-2">

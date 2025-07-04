@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from django.views.decorators.cache import cache_page
 from django.views.generic import ListView
 import requests
+from django.utils.translation import gettext_lazy as _
 from .models import *
 
 def index(request):
@@ -13,11 +14,33 @@ def index(request):
     currency = requests.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").json()
     currency = {item["cc"]: round(item["rate"], 2) for item in currency if item["cc"] == "EUR" or item["cc"] == "USD"}
 
+    enemy_losses_translation = {
+        "personnel_units": _("Особовий склад"),
+        "tanks": _("Танки"),
+        "armoured_fighting_vehicles": _("ББМ"),
+        "artillery_systems": _("Артилерія"),
+        "mlrs": _("РСЗВ"),
+        "aa_warfare_systems": _("ППО"),
+        "planes": _("Літаки"),
+        "helicopters": _("Гелікоптери"),
+        "vehicles_fuel_tanks": _("Заправна техніка"),
+        "warships_cutters": _("Кораблі"),
+        "cruise_missiles": _("Крилаті ракети"),
+        "uav_systems": _("БПЛА"),
+    }
+    enemy_losses = requests.get("https://russianwarship.rip/api/v2/statistics/latest").json()["data"]
+    current_day_of_war = enemy_losses["day"]
+    enemy_losses = [{"name": enemy_losses_translation[item], "losses_total": enemy_losses["stats"][item],
+                     "losses_increase": enemy_losses["increase"][item], "img_name": f"{item}.png"} for item in
+                    enemy_losses_translation]
+
     context = {
         "news": news,
         "columns": columns,
         "interviews": interviews,
-        "currency": currency
+        "currency": currency,
+        "enemy_losses": enemy_losses,
+        "current_day_of_war": current_day_of_war
     }
     return render(request, "news/index.html", context)
 
