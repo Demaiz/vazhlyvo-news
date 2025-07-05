@@ -41,5 +41,13 @@
 }
 
 .enemy-losses-increase{
-    font-size: 12px;
+    font-size: 11px;
+}
+
+.enemy-losses-informer{
+    overflow-x: scroll;
+}
+
+.enemy-losses-item{
+    min-width: 109px;
 }

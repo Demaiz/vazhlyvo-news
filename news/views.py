@@ -10,6 +10,7 @@ def index(request):
     news = Article.objects.filter(article_type="news").order_by("-date")[:3]
     columns = Article.objects.filter(article_type="column").order_by("-date")[:2]
     interviews = Article.objects.filter(article_type="interview").order_by("-date")[:3]
+    last_news = Article.objects.filter(article_type="news").order_by("-date")[:6]
 
     currency = requests.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").json()
     currency = {item["cc"]: round(item["rate"], 2) for item in currency if item["cc"] == "EUR" or item["cc"] == "USD"}
@@ -38,6 +39,7 @@ def index(request):
         "news": news,
         "columns": columns,
         "interviews": interviews,
+        "last_news": last_news,
         "currency": currency,
         "enemy_losses": enemy_losses,
         "current_day_of_war": current_day_of_war
