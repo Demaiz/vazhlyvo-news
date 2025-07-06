@@ -8,7 +8,7 @@
     <body>
         {% block content %}
         <div class="container">
-         <h5>Втрати ворога станом на {{current_day_of_war}} день</h5>
+         <h5>{% trans "Втрати ворога станом на" %} {{current_day_of_war}} {% trans "день" %}</h5>
             <div class="row overflow-auto flex-nowrap enemy-losses-informer">
                 {% for item in enemy_losses %}     
                     <div class="col-1 border-start border-end d-flex flex-column px-2 enemy-losses-item">
@@ -104,28 +104,28 @@
                     </div>
                     <script async src="https://app3.weatherwidget.org/js/?id=ww_190cb87bd5780"></script>
                     <div class="border rounded p-3 shadow-sm">
-                        <h5>Офіційний курс НБУ</h5>
+                        <h5>{% trans "Офіційний курс НБУ" %}</h5>
                         <table class="table mb-0">
                             <thead>
                                 <tr>
-                                    <th scope="col">Валюта</th>
-                                    <th scope="col">Курс</th>
+                                    <th scope="col">{% trans "Валюта" %}</th>
+                                    <th scope="col">{% trans "Курс" %}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row">Євро</th>
+                                    <th scope="row">{% trans "Євро" %}</th>
                                     <td>{{currency.EUR}}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Долар</th>
+                                    <th scope="row">{% trans "Долар" %}</th>
                                     <td>{{currency.USD}}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="border rounded my-3 p-3 pb-0 shadow-sm">
-                        <h5>Останні новини</h5>
+                        <h5>{% trans "Останні новини" %}</h5>
                         {% for article in last_news %}
                             <a href="{% url 'article' article_id=article.id article_title=' ' %}" class="text-reset text-decoration-none">
                                 <h6 class="text-secondary fw-normal">{{article.date}}</h6>
