@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_ckeditor_5',
     'bootstrap5',
     'debug_toolbar',
+    'hitcount',
 ]
 
 MIDDLEWARE = [

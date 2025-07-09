@@ -4,6 +4,9 @@ from django.views.decorators.cache import cache_page
 from django.views.generic import ListView
 import requests
 from django.utils.translation import gettext_lazy as _
+from hitcount.utils import get_hitcount_model
+from hitcount.views import HitCountMixin
+
 from .models import *
 
 def index(request):
@@ -52,9 +55,14 @@ def article(request, article_title, article_id):
     article = get_object_or_404(Article, pk=article_id)
     recommendations = Article.objects.filter(tags__in=article.tags.all()).distinct().exclude(id=article_id).order_by("-date")[:3]
 
+    # try to count hit
+    hit_count = get_hitcount_model().objects.get_for_object(article)
+    hit_count_response = HitCountMixin.hit_count(request, hit_count)
+
     context = {
         "article": article,
-        "recommendations": recommendations
+        "recommendations": recommendations,
+        "hits": hit_count.hits
     }
 
     return redirect("article", slugify(article.title, allow_unicode=True), article_id) \

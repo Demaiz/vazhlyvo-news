@@ -13,6 +13,7 @@
                     <h2>{{article.title}}</h2>
                     <h6>{% trans "Автор" %}: {{article.author.user.first_name}} {{article.author.user.last_name}}</h6>
                     <h6>{{article.date}}</h6>
+                    <h6>Кількість переглядів: {{hits}}</h6>
                     <img src="{{article.cover_image.url}}" class="img-fluid my-3" alt="cover image">      
                     <div class="text-justify article-text">
                         {{article.text|safe}}
