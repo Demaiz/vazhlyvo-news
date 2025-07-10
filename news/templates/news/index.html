@@ -23,17 +23,17 @@
             </div>      
             <div class="row justify-content-center">
                 <div class="col-xl-9 col-sm-10">
-                    {% if news|length >= 3 %}
+                    {% if popular_articles|length >= 3 %}
                     <div class="row mt-2">
                         <div class="d-flex">
                             <div class="col-8 col-md-9 p-3">
-                                <a href = "{% url 'article' article_title=' ' article_id=news.0.id %}" class="text-reset text-decoration-none">
-                                <img src="{{news.0.cover_image.url}}" class="img-fluid rounded" alt="{{news.0.title}}">                        
-                                    <h5 class="hover-text">{{news.0.title}}</h5>
+                                <a href = "{% url 'article' article_title=' ' article_id=popular_articles.0.id %}" class="text-reset text-decoration-none">
+                                <img src="{{popular_articles.0.cover_image.url}}" class="img-fluid rounded" alt="{{popular_articles.0.title}}">                        
+                                    <h5 class="hover-text">{{popular_articles.0.title}}</h5>
                                 </a>
                             </div>     
                             <div class="col-4 col-md-3 d-flex justify-content-between flex-column p-3">
-                                {% for item in news|slice:"1:3" %}
+                                {% for item in popular_articles|slice:"1:3" %}
                                     <a href = "{% url 'article' article_title=' ' article_id=item.id %}" class="text-reset text-decoration-none">
                                         <img src="{{item.cover_image.url}}" class="img-fluid rounded" alt="{{item.title}}">
                                         <h6 class="hover-text">{{item.title}}</h6>

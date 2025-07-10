@@ -1,16 +1,22 @@
+import datetime
+from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.text import slugify
 from django.views.decorators.cache import cache_page
 from django.views.generic import ListView
 import requests
 from django.utils.translation import gettext_lazy as _
+from hitcount.models import HitCount
 from hitcount.utils import get_hitcount_model
 from hitcount.views import HitCountMixin
 
 from .models import *
 
 def index(request):
-    news = Article.objects.filter(article_type="news").order_by("-date")[:3]
+    popular_articles = HitCount.objects.all().order_by('-hits')
+    # display 3 most popular articles published within the last 30 days
+    popular_articles = [item.content_object for item in popular_articles if timezone.now() - item.content_object.date < datetime.timedelta(days=30)][:3]
+
     columns = Article.objects.filter(article_type="column").order_by("-date")[:2]
     interviews = Article.objects.filter(article_type="interview").order_by("-date")[:3]
     last_news = Article.objects.filter(article_type="news").order_by("-date")[:6]
@@ -39,7 +45,7 @@ def index(request):
                     enemy_losses_translation]
 
     context = {
-        "news": news,
+        "popular_articles": popular_articles,
         "columns": columns,
         "interviews": interviews,
         "last_news": last_news,
