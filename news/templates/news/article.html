@@ -4,17 +4,30 @@
 <html>
     <head>
     {% load i18n %}
+    {% load static %}
     </head>
     <body>
         {% block content %}
         <div class="container-fluid">
             <div class="row d-flex justify-content-center">
-                <div class="col-xxl-6 col-xl-7 col-md-9">
-                    <h2>{{article.title}}</h2>
-                    <h6>{% trans "Автор" %}: {{article.author.user.first_name}} {{article.author.user.last_name}}</h6>
-                    <h6>{{article.date}}</h6>
-                    <h6>Кількість переглядів: {{hits}}</h6>
-                    <img src="{{article.cover_image.url}}" class="img-fluid my-3" alt="cover image">      
+                <div class="col-xxl-6 col-xl-7 col-md-9">                   
+                        <h2 class="mt-1">{{article.title}}</h2>
+                        <div class="row">
+                            <div class="col-8">
+                                <h6>{% trans "Автор" %}: {{article.author.user.first_name}} {{article.author.user.last_name}}</h6>
+                                <h6>{{article.date}}</h6>
+                                {% for tag in tags %}
+                                    <span class="badge bg-secondary text-dark">{{tag}}</span>
+                                {% endfor %}    
+                            </div>
+                            <div class="col-4 d-flex justify-content-end">
+                                <div class="d-flex align-items-center justify-content-end">
+                                    <img src="{% static 'news/images/eye_icon.png' %}" class="eye-icon" alt="eye icon">
+                                    <p class="mb-0 mx-1">{{hits}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    <img src="{{article.cover_image.url}}" class="img-fluid my-1 mb-2 rounded" alt="cover image">      
                     <div class="text-justify article-text">
                         {{article.text|safe}}
                     </div>
@@ -27,11 +40,11 @@
                         <h3>{% trans "Читайте також" %}:</h3>
                     </div>
                 </div>
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex justify-content-center px-2">
                     {% for recommendation in recommendations %}
-                    <div class="col-xxl-2 col-sm-3 border rounded m-2 p-0 shadow-sm">
+                    <div class="col-xxl-2 col-sm-3 border rounded m-2 p-0 shadow-sm rounded">
                         <a href="{% url 'article' article_title=' ' article_id=recommendation.id %}" class = "text-reset text-decoration-none">
-                            <img src="{{ recommendation.cover_image.url }}" class="img-fluid">
+                            <img src="{{ recommendation.cover_image.url }}" class="img-fluid rounded" alt="{{recommendation.title}}">
                             <h6 class="hover-text m-2">{{recommendation.title}}</h6>
                         </a>
                     </div>                

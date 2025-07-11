@@ -59,6 +59,7 @@ def index(request):
 @cache_page(60 * 15)
 def article(request, article_title, article_id):
     article = get_object_or_404(Article, pk=article_id)
+    tags = article.tags.all()
     recommendations = Article.objects.filter(tags__in=article.tags.all()).distinct().exclude(id=article_id).order_by("-date")[:3]
 
     # try to count hit
@@ -68,7 +69,8 @@ def article(request, article_title, article_id):
     context = {
         "article": article,
         "recommendations": recommendations,
-        "hits": hit_count.hits
+        "hits": hit_count.hits,
+        "tags": tags
     }
 
     return redirect("article", slugify(article.title, allow_unicode=True), article_id) \
