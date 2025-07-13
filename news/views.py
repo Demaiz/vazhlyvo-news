@@ -9,6 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from hitcount.models import HitCount
 from hitcount.utils import get_hitcount_model
 from hitcount.views import HitCountMixin
+from django.core.paginator import Paginator
 
 from .models import *
 
@@ -104,5 +105,9 @@ class InterviewsListView(ListView):
 def search(request):
     context = {}
     if request.GET.get("search"):
-        context["articles"] = Article.objects.filter(title__icontains=request.GET["search"])
+        articles = Article.objects.filter(title__icontains=request.GET["search"]).order_by("-date")
+        paginator = Paginator(articles, 12)
+        page_number = request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
+        context["page_obj"] = page_obj
     return render(request, "news/search.html", context)

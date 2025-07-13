@@ -12,7 +12,7 @@
                         <input type="text" class="form-control" placeholder="Пошук" name="search">
                         <input type="submit" class="btn" value="Пошук">
                     </form>               
-                    {% for article in articles %}
+                    {% for article in page_obj.object_list %}
                     <a href="{% url 'article' article_title='dsa' article_id=article.id %}" class="text-reset text-decoration-none">
                         <div class="row my-3 border rounded shadow-sm">              
                             <div class="col-9">
@@ -25,6 +25,7 @@
                         </div>
                     </a>
                     {% endfor %}
+                    {% include 'news/pagination.html' %}
                 </div>
             </div>
         </div>
