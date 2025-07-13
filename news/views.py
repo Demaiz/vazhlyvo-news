@@ -99,3 +99,10 @@ class InterviewsListView(ListView):
     ordering = ["-date"]
     template_name = "news/interviews.html"
     queryset = Article.objects.filter(article_type="interview")
+
+
+def search(request):
+    context = {}
+    if request.GET.get("search"):
+        context["articles"] = Article.objects.filter(title__icontains=request.GET["search"])
+    return render(request, "news/search.html", context)

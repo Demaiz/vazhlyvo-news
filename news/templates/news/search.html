@@ -1,0 +1,33 @@
+{% extends 'news/base.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        {% block content %}
+        <div class="container-fluid">
+            <div class="row d-flex flex-column align-items-center">
+                <div class="col-xxl-6 col-lg-8">
+                    <form method="GET" class="d-flex mb-1 mt-3">
+                        <input type="text" class="form-control" placeholder="Пошук" name="search">
+                        <input type="submit" class="btn" value="Пошук">
+                    </form>               
+                    {% for article in articles %}
+                    <a href="{% url 'article' article_title='dsa' article_id=article.id %}" class="text-reset text-decoration-none">
+                        <div class="row my-3 border rounded shadow-sm">              
+                            <div class="col-9">
+                                <h6 class="mt-1 text-secondary">{{article.date}}</h6>
+                                <h5 class="hover-text">{{article.title}}</h5>
+                            </div>
+                            <div class="col-3 px-0">
+                                <img src="{{article.cover_image.url}}" class = "img-fluid rounded">
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>
