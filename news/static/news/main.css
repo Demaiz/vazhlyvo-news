@@ -55,3 +55,14 @@
 .eye-icon{
     height: 24px;
 }
+
+#search-input{
+    width: 0px;
+    z-index: -1;
+    transition: width 0.85s;
+}
+
+#search-input.expanded{
+    z-index: 1;
+    width: 190px;
+}

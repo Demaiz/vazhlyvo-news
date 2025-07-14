@@ -35,7 +35,11 @@
                             <li class="nav-item {% if '/columns/' in request.path %}active{% endif %}">
                                 <a class="nav-link fw-bold text-dark nav-hover" href="{% url 'columns' %}">{% trans "КОЛОНКИ" %}</a>
                             </li>
-                        </ul>                      
+                        </ul> 
+                        <input id="search-input" class="form-control" type="search" placeholder="Пошук">
+                        <a href="#" id="search-icon-link">
+                            <img src="{% static 'news/images/search.svg' %}" id="search-icon" class="mx-2" alt="search icon">          
+                        </a>    
                         <div class="nav-item dropdown pe-2">
                             <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <!-- display current language -->
@@ -74,6 +78,9 @@
                 <h6>© 2025 {% trans "Важливо Новини. Усі права захищено" %}.</h6>
             </div>
         </footer>
+        {% endblock %}
+        {% block scripts %}
+            <script src="{% static 'news/search.js' %}"></script>
         {% endblock %}
     </body>
 </html>
