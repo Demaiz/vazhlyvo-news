@@ -1,17 +1,18 @@
 import datetime
+import requests
+from .models import *
+from .forms import SearchForm
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.text import slugify
 from django.views.decorators.cache import cache_page
 from django.views.generic import ListView
-import requests
 from django.utils.translation import gettext_lazy as _
 from hitcount.models import HitCount
 from hitcount.utils import get_hitcount_model
 from hitcount.views import HitCountMixin
 from django.core.paginator import Paginator
 
-from .models import *
 
 def index(request):
     popular_articles = HitCount.objects.all().order_by('-hits')
@@ -103,9 +104,17 @@ class InterviewsListView(ListView):
 
 
 def search(request):
-    context = {}
-    if request.GET.get("search"):
-        articles = Article.objects.filter(title__icontains=request.GET["search"]).order_by("-date")
+    context = {
+        "form": SearchForm(request.GET),
+        "page_obj": None
+    }
+    if request.GET.get("search") and context["form"].is_valid():
+        # set default date if user did not specify it
+        date_start = request.GET.get("date_start") or timezone.make_aware(datetime.datetime(1970, 1, 1))
+        date_stop = request.GET.get("date_stop") or timezone.now()
+        # get articles that match search request and date range
+        articles = Article.objects.filter(title__icontains=context["form"].cleaned_data["search"], date__gte=date_start, date__lte=date_stop).order_by("-date")
+        # implement pagination
         paginator = Paginator(articles, 12)
         page_number = request.GET.get("page")
         page_obj = paginator.get_page(page_number)
