@@ -18,7 +18,7 @@
         {% block navbar %}
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand ps-2" href="{% url 'index' %}">
+                    <a class="navbar-brand ps-2 me-2" href="{% url 'index' %}">
                         <img src="{% static 'news/images/logo_' %}{{LANGUAGE_CODE}}.svg" alt="logo" class="navbar-logo">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,26 +36,28 @@
                                 <a class="nav-link fw-bold text-dark nav-hover" href="{% url 'columns' %}">{% trans "КОЛОНКИ" %}</a>
                             </li>
                         </ul> 
-                        <input id="search-input" class="form-control" type="search" placeholder="Пошук">
-                        <a href="#" id="search-icon-link">
-                            <img src="{% static 'news/images/search.svg' %}" id="search-icon" class="mx-2" alt="search icon">          
-                        </a>    
-                        <div class="nav-item dropdown pe-2">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <!-- display current language -->
-                                {% for language in LANGUAGES %}
-                                    {% if language.0 == LANGUAGE_CODE %}
-                                        {{language.1}}
-                                    {% endif %}
-                                {% endfor %}
-                            </a>
-                            <ul class="dropdown-menu">
-                                {% for language in LANGUAGES %}
-                                    <li><a class="dropdown-item text-dark" href="/{{language.0}}{{request.path|slice:'3:'}}">{{language.1}}</a></li>
-                                {% endfor %}
-                            </ul>
+                        <div class="d-flex align-items-center justify-content-center flex-wrap flex-md-nowrap">
+                            <input id="search-input" class="form-control my-1" type="search" placeholder="Пошук">
+                            <a href="#" id="search-icon-link my-1">
+                                <img src="{% static 'news/images/search.svg' %}" id="search-icon" class="mx-2" alt="search icon">          
+                            </a>    
+                            <div class="nav-item dropdown pe-2 my-1">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <!-- display current language -->
+                                    {% for language in LANGUAGES %}
+                                        {% if language.0 == LANGUAGE_CODE %}
+                                            {{language.1}}
+                                        {% endif %}
+                                    {% endfor %}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    {% for language in LANGUAGES %}
+                                        <li><a class="dropdown-item text-dark" href="/{{language.0}}{{request.path|slice:'3:'}}">{{language.1}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-outline-success my-1">{% trans "Підтримати" %}</button>
                         </div>
-                        <button type="button" class="btn btn-outline-success">{% trans "Підтримати" %}</button>
                     </div>
                 </div>
             </nav>
