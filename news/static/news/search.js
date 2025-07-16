@@ -14,11 +14,11 @@ function show_input(event){
 }
 
 function set_url(){
-    search_icon_link.setAttribute("href", `/search?search=${search_input.value}`);
+    search_icon_link.setAttribute("href", `${window.location.pathname.slice(0,3)}/search?search=${search_input.value}`);
 }
 
 function enter_pressed(event){
     if(event.key === "Enter" && document.activeElement === search_input){
-        window.location.href = `/search?search=${search_input.value}`;
+        window.location.href = `${window.location.pathname.slice(0,3)}/search?search=${search_input.value}`;
     }
 }

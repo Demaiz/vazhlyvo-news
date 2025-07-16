@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-06 20:18+0300\n"
+"POT-Creation-Date: 2025-07-16 13:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,18 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: .\news\forms.py:5
+msgid "Search"
+msgstr ""
+
+#: .\news\forms.py:6
+msgid "From"
+msgstr "Від"
+
+#: .\news\forms.py:7
+msgid "To"
+msgstr "До"
 
 #: .\news\models.py:24
 msgid "news"
@@ -33,43 +45,47 @@ msgstr ""
 msgid "interview"
 msgstr ""
 
-#: .\news\templates\news\article.html:14
+#: .\news\templates\news\article.html:17
 msgid "Автор"
 msgstr ""
 
-#: .\news\templates\news\article.html:26
+#: .\news\templates\news\article.html:40
 msgid "Читайте також"
 msgstr ""
 
-#: .\news\templates\news\base.html:28
+#: .\news\templates\news\base.html:30
 msgid "НОВИНИ"
 msgstr ""
 
-#: .\news\templates\news\base.html:31
+#: .\news\templates\news\base.html:33
 msgid "ІНТЕРВ'Ю"
 msgstr ""
 
-#: .\news\templates\news\base.html:34
+#: .\news\templates\news\base.html:36
 msgid "КОЛОНКИ"
 msgstr ""
 
-#: .\news\templates\news\base.html:54
+#: .\news\templates\news\base.html:40
+msgid "Пошук"
+msgstr ""
+
+#: .\news\templates\news\base.html:59
 msgid "Підтримати"
 msgstr ""
 
-#: .\news\templates\news\base.html:65
+#: .\news\templates\news\base.html:71
 msgid "Наші соціальні мережі"
 msgstr ""
 
-#: .\news\templates\news\base.html:71
+#: .\news\templates\news\base.html:77
 msgid "Адреса: м. Київ, вул. Паркова"
 msgstr ""
 
-#: .\news\templates\news\base.html:72
+#: .\news\templates\news\base.html:78
 msgid "Телефон"
 msgstr ""
 
-#: .\news\templates\news\base.html:74
+#: .\news\templates\news\base.html:80
 msgid "Важливо Новини. Усі права захищено"
 msgstr ""
 
@@ -113,58 +129,62 @@ msgstr ""
 msgid "Останні новини"
 msgstr ""
 
-#: .\news\views.py:19
-msgid "Особовий склад"
-msgstr ""
-
-#: .\news\views.py:20
-msgid "Танки"
-msgstr ""
-
-#: .\news\views.py:21
-msgid "ББМ"
-msgstr ""
-
-#: .\news\views.py:22
-msgid "Артилерія"
-msgstr ""
-
-#: .\news\views.py:23
-msgid "РСЗВ"
-msgstr ""
-
-#: .\news\views.py:24
-msgid "ППО"
-msgstr ""
-
-#: .\news\views.py:25
-msgid "Літаки"
-msgstr ""
-
-#: .\news\views.py:26
-msgid "Гелікоптери"
-msgstr ""
-
-#: .\news\views.py:27
-msgid "Заправна техніка"
-msgstr ""
-
-#: .\news\views.py:28
-msgid "Кораблі"
-msgstr ""
-
-#: .\news\views.py:29
-msgid "Крилаті ракети"
+#: .\news\templates\news\search.html:46
+msgid "За Вашим запитом нічого не знайдено"
 msgstr ""
 
 #: .\news\views.py:30
+msgid "Особовий склад"
+msgstr ""
+
+#: .\news\views.py:31
+msgid "Танки"
+msgstr ""
+
+#: .\news\views.py:32
+msgid "ББМ"
+msgstr ""
+
+#: .\news\views.py:33
+msgid "Артилерія"
+msgstr ""
+
+#: .\news\views.py:34
+msgid "РСЗВ"
+msgstr ""
+
+#: .\news\views.py:35
+msgid "ППО"
+msgstr ""
+
+#: .\news\views.py:36
+msgid "Літаки"
+msgstr ""
+
+#: .\news\views.py:37
+msgid "Гелікоптери"
+msgstr ""
+
+#: .\news\views.py:38
+msgid "Заправна техніка"
+msgstr ""
+
+#: .\news\views.py:39
+msgid "Кораблі"
+msgstr ""
+
+#: .\news\views.py:40
+msgid "Крилаті ракети"
+msgstr ""
+
+#: .\news\views.py:41
 msgid "БПЛА"
 msgstr ""
 
-#: .\vazhlyvo\settings.py:123
+#: .\vazhlyvo\settings.py:124
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\vazhlyvo\settings.py:124
+#: .\vazhlyvo\settings.py:125
 msgid "English"
 msgstr "English"
