@@ -1,4 +1,5 @@
 {% extends 'news/base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,14 +10,20 @@
             <div class="row d-flex flex-column align-items-center">
                 <div class="col-xxl-6 col-lg-8">
                     <form method="GET" class="d-flex mb-1 mt-3">
-                         <div class="d-flex flex-column w-100">
+                        <div class="d-flex flex-column w-100">
                             <div class="d-flex w-100 my-2">
                                 {{form.search}}
-                                <input type="submit" class="btn" value="Пошук">
+                                <input type="image" src="{% static 'news/images/search.svg' %}" class="btn ms-2 p-2" value="Пошук" alt="search">
                             </div>
                             <div class="d-flex my-2">
-                                {{form.date_start}}
-                                {{form.date_stop}}
+                                <div class="me-4">
+                                    {{form.date_start.label}}
+                                    {{form.date_start}}
+                                </div>
+                                <div>
+                                    {{form.date_stop.label}}
+                                    {{form.date_stop}}
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -34,6 +41,8 @@
                             </div>
                         </a>
                         {% endfor %}
+                    {% else %}
+                    <h4>За Вашим запитом нічого не знайдено</h4>
                     {% endif %}
                     {% include 'news/pagination.html' %}
                 </div>
