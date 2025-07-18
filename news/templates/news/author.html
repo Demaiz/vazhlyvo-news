@@ -1,0 +1,39 @@
+{% extends 'news/base.html' %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        {% block content %}
+            <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-xxl-6 col-xl-7 col-md-9">
+                        <div class="row">
+                            <div class="col-3 my-3">
+                                <img src="{{author.photo.url}}" class="rounded-circle img-fluid">
+                            </div>
+                            <div class="col my-3">
+                                <h5>{{author.user.first_name}} {{author.user.last_name}}</h5>
+                                <p>{{author.role}}</p>
+                            </div>
+                            <hr>
+                            <h4>{% trans 'Всі статті автора' %}:</h4>
+                            {% for article in page_obj %}
+                            <div class="col-6 d-flex mt-4">
+                                <div class="p-3 border rounded shadow-sm d-flex flex-column w-100">
+                                    <a href="{% url 'article' article_title=' ' article_id=article.id %}" class = "text-reset text-decoration-none">
+                                        <h5 class="hover-text">{{article.title}}</h5>
+                                        <p class="mb-0 text-secondary">{{article.date}}</p>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% include 'news/pagination.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </body>
+</html>

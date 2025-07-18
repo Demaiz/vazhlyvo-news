@@ -14,7 +14,9 @@
                         <h2 class="mt-1">{{article.title}}</h2>
                         <div class="row">
                             <div class="col-8">
-                                <h6>{% trans "Автор" %}: {{article.author.user.first_name}} {{article.author.user.last_name}}</h6>
+                                <a href="{% url 'author' author_name=article.author.user.first_name|add:'_'|add:article.author.user.last_name author_id=article.author.id %}" class = "text-reset text-decoration-none">
+                                    <h6 class="hover-text">{% trans "Автор" %}: {{article.author.user.first_name}} {{article.author.user.last_name}}</h6>
+                                </a>
                                 <h6>{{article.date}}</h6>
                                 {% for tag in tags %}
                                     <span class="badge bg-secondary text-dark">{{tag}}</span>

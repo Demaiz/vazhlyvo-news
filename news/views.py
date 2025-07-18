@@ -120,3 +120,23 @@ def search(request):
         page_obj = paginator.get_page(page_number)
         context["page_obj"] = page_obj
     return render(request, "news/search.html", context)
+
+
+def author(request, author_name, author_id):
+    author = get_object_or_404(Author, pk=author_id)
+
+    if author.user.__str__() != author_name:
+        return redirect("author", author, author_id)
+
+    author_articles = Article.objects.filter(author=author).order_by("-date")
+
+    paginator = Paginator(author_articles, 12)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        "author": author,
+        "page_obj": page_obj
+    }
+
+    return render(request, "news/author.html", context)

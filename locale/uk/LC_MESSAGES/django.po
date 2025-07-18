@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-16 13:56+0300\n"
+"POT-Creation-Date: 2025-07-18 15:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,6 +51,10 @@ msgstr ""
 
 #: .\news\templates\news\article.html:40
 msgid "Читайте також"
+msgstr ""
+
+#: .\news\templates\news\author.html:22
+msgid "Всі статті автора"
 msgstr ""
 
 #: .\news\templates\news\base.html:30

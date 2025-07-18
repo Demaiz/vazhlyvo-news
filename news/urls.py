@@ -7,5 +7,6 @@ urlpatterns = [
     path("news/", views.NewsListView.as_view(), name="news"),
     path("columns/", views.ColumnsListView.as_view(), name="columns"),
     path("interviews/", views.InterviewsListView.as_view(), name="interviews"),
-    path("search/", views.search, name="search")
+    path("search/", views.search, name="search"),
+    path("author/<str:author_name>/<int:author_id>", views.author, name="author")
 ]
