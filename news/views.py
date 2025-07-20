@@ -19,8 +19,8 @@ def index(request):
     # display 3 most popular articles published within the last 30 days
     popular_articles = [item.content_object for item in popular_articles if timezone.now() - item.content_object.date < datetime.timedelta(days=30)][:3]
 
-    columns = Article.objects.filter(article_type="column").order_by("-date")[:2]
-    interviews = Article.objects.filter(article_type="interview").order_by("-date")[:3]
+    columns = Article.objects.filter(article_type="column").order_by("-date").exclude(id__in=[article.id for article in popular_articles])[:2]
+    interviews = Article.objects.filter(article_type="interview").order_by("-date").exclude(id__in=[article.id for article in popular_articles])[:3]
     last_news = Article.objects.filter(article_type="news").order_by("-date")[:6]
 
     currency = requests.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").json()
