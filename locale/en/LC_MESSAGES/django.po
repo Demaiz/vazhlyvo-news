@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-18 15:56+0300\n"
+"POT-Creation-Date: 2025-07-19 21:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,15 +42,15 @@ msgstr ""
 msgid "interview"
 msgstr ""
 
-#: .\news\templates\news\article.html:17
+#: .\news\templates\news\article.html:18
 msgid "Автор"
 msgstr "Author"
 
-#: .\news\templates\news\article.html:40
+#: .\news\templates\news\article.html:42
 msgid "Читайте також"
 msgstr "Read also"
 
-#: .\news\templates\news\author.html:22
+#: .\news\templates\news\author.html:21
 msgid "Всі статті автора"
 msgstr "All articles by the author"
 
@@ -90,43 +90,47 @@ msgstr "Phone"
 msgid "Важливо Новини. Усі права захищено"
 msgstr "Vazhlyvo News. All rights reserved"
 
-#: .\news\templates\news\index.html:11
+#: .\news\templates\news\index.html:13
 msgid "Втрати ворога станом на"
 msgstr "Enemy losses as of"
 
-#: .\news\templates\news\index.html:11
+#: .\news\templates\news\index.html:13
 msgid "день"
 msgstr "day"
 
-#: .\news\templates\news\index.html:49
+#: .\news\templates\news\index.html:53
 msgid "Інтерв'ю"
 msgstr "Interview"
 
-#: .\news\templates\news\index.html:72
+#: .\news\templates\news\index.html:76
 msgid "Колонки"
 msgstr "Columns"
 
-#: .\news\templates\news\index.html:107
+#: .\news\templates\news\index.html:106
+msgid "Інформери"
+msgstr "Informers"
+
+#: .\news\templates\news\index.html:122
 msgid "Офіційний курс НБУ"
 msgstr "Official NBU exchange rate"
 
-#: .\news\templates\news\index.html:111
+#: .\news\templates\news\index.html:126
 msgid "Валюта"
 msgstr "Currency"
 
-#: .\news\templates\news\index.html:112
+#: .\news\templates\news\index.html:127
 msgid "Курс"
 msgstr "Rate"
 
-#: .\news\templates\news\index.html:117
+#: .\news\templates\news\index.html:132
 msgid "Євро"
 msgstr "Euro"
 
-#: .\news\templates\news\index.html:121
+#: .\news\templates\news\index.html:136
 msgid "Долар"
 msgstr "Dollar"
 
-#: .\news\templates\news\index.html:128
+#: .\news\templates\news\index.html:146
 msgid "Останні новини"
 msgstr "Latest news"
 

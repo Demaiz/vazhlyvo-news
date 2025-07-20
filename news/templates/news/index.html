@@ -7,36 +7,40 @@
     </head>
     <body>
         {% block content %}
-        <div class="container">
-         <h5>{% trans "Втрати ворога станом на" %} {{current_day_of_war}} {% trans "день" %}</h5>
-            <div class="row overflow-auto flex-nowrap enemy-losses-informer">
-                {% for item in enemy_losses %}     
-                    <div class="col-1 border-start border-end d-flex flex-column px-2 enemy-losses-item">
-                        <img src="{% static 'news/images/' %}{{item.img_name}}" class="img-fluid px-1" alt="{{item.name}}">
-                        <div class="d-inline">
-                            <h6 class="d-inline enemy-losses-total">{{item.losses_total}}</h6>
-                            <h6 class="d-inline text-danger enemy-losses-increase">{% if item.losses_increase %} + {{item.losses_increase}}{% endif %}</h6>
-                        </div>
-                        <p class="mb-0">{{item.name}}</p>
-                    </div>
-                {% endfor %}
-            </div>      
+        <div class="container-fluid">
+            <div class="w-100 d-flex justify-content-center">
+                <div class="col-lg-8 col-12 mb-2">
+                    <h5>{% trans "Втрати ворога станом на" %} {{current_day_of_war}} {% trans "день" %}</h5>
+                    <div class="row overflow-auto flex-nowrap enemy-losses-informer">
+                        {% for item in enemy_losses %}     
+                            <div class="col-1 border-start border-end d-flex flex-column px-2 enemy-losses-item">
+                                <img src="{% static 'news/images/' %}{{item.img_name}}" class="img-fluid px-1" alt="{{item.name}}">
+                                <div class="d-inline">
+                                    <h6 class="d-inline enemy-losses-total">{{item.losses_total}}</h6>
+                                    <h6 class="d-inline text-danger enemy-losses-increase">{% if item.losses_increase %} +{{item.losses_increase}}{% endif %}</h6>
+                                </div>
+                                <p class="mb-0">{{item.name}}</p>
+                            </div>
+                        {% endfor %}
+                    </div>  
+                </div>  
+            </div>
             <div class="row justify-content-center">
-                <div class="col-xl-9 col-sm-10">
+                <div class="col-xl-6 col-lg-8 me-1">
                     {% if popular_articles|length >= 3 %}
-                    <div class="row mt-2">
+                    <div class="row">
                         <div class="d-flex">
-                            <div class="col-8 col-md-9 p-3">
+                            <div class="col-8 col-md-9 py-3 pe-4">
                                 <a href = "{% url 'article' article_title=' ' article_id=popular_articles.0.id %}" class="text-reset text-decoration-none">
                                 <img src="{{popular_articles.0.cover_image.url}}" class="img-fluid rounded" alt="{{popular_articles.0.title}}">                        
-                                    <h5 class="hover-text">{{popular_articles.0.title}}</h5>
+                                    <h5 class="hover-text mt-2">{{popular_articles.0.title}}</h5>
                                 </a>
                             </div>     
-                            <div class="col-4 col-md-3 d-flex justify-content-between flex-column p-3">
+                            <div class="col-4 col-md-3 d-flex justify-content-between flex-column py-3">
                                 {% for item in popular_articles|slice:"1:3" %}
                                     <a href = "{% url 'article' article_title=' ' article_id=item.id %}" class="text-reset text-decoration-none">
                                         <img src="{{item.cover_image.url}}" class="img-fluid rounded" alt="{{item.title}}">
-                                        <h6 class="hover-text">{{item.title}}</h6>
+                                        <h6 class="hover-text mt-2">{{item.title}}</h6>
                                     </a>
                                 {% endfor %}
                             </div>
@@ -44,13 +48,13 @@
                     </div>
                     {% endif %}
                     <div class="w-100 d-flex justify-content-center">
-                        <hr class="w-97">
+                        <hr class="w-97 mt-0">
                     </div>
                     <h3>{% trans "Інтерв'ю"%}:</h3>               
                     <div class="row">
                         {% for interview in interviews %}
                         <div class="col-md-4 d-flex mb-3">
-                            <div class="m-2 border rounded shadow-sm d-flex flex-column w-100">
+                            <div class="border rounded shadow-sm d-flex flex-column w-100">
                                 <a href="{% url 'article' article_title=' ' article_id=interview.id %}" class = "text-reset text-decoration-none d-flex flex-column h-100">
                                     <img class="rounded img-fluid" src = "{{interview.cover_image.url}}" alt="cover_image ">
                                     <div class="d-flex justify-content-center">
@@ -69,11 +73,11 @@
                     <div class="w-100 d-flex justify-content-center">
                         <hr class="w-97">
                     </div>
-                    <h3>{% trans "Колонки" %}:</h3>                  
+                    <h3 class="mb-0">{% trans "Колонки" %}:</h3>                  
                     <div class="row">
                         {% for column in columns %}
-                        <div class="col-md-6 d-flex">
-                            <div class="m-2 border rounded shadow-sm d-flex flex-column w-100">
+                        <div class="col-md-6 d-flex my-2">
+                            <div class="border rounded shadow-sm d-flex flex-column w-100">
                                 <a href="{% url 'article' article_title=' ' article_id=column.id %}" class = "text-reset text-decoration-none d-flex flex-column h-100">
                                     <h5 class="m-2 mb-1 flex-grow-1 hover-text">{{column.title}}</h5>
                                     <div class="d-flex justify-content-center">
@@ -95,44 +99,58 @@
                         </div>
                         {% endfor %}
                     </div>
+                    <div class="w-100 d-flex justify-content-center d-xl-none">
+                        <hr class="w-97">
+                    </div>
+                    <h3 class="d-flex d-xl-none mb-0">{% trans 'Інформери' %}:</h3>
                 </div>
-                <div class="col-xl-3 col-sm-10 border-start mt-3">
-                    {% get_current_language as LANGUAGE_CODE %}
-                    <div class="mb-3 border rounded shadow-sm" id="ww_190cb87bd5780" v='1.3' loc='auto'
-                        a='{"t":"horizontal","lang":"{{LANGUAGE_CODE}}","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#000000","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
-                        <a href="https://weatherwidget.org/uk/" id="ww_190cb87bd5780_u" target="_blank">Безкоштовний інформер погоди на сайт</a>
-                    </div>
-                    <script async src="https://app3.weatherwidget.org/js/?id=ww_190cb87bd5780"></script>
-                    <div class="border rounded p-3 shadow-sm">
-                        <h5>{% trans "Офіційний курс НБУ" %}</h5>
-                        <table class="table mb-0">
-                            <thead>
-                                <tr>
-                                    <th scope="col">{% trans "Валюта" %}</th>
-                                    <th scope="col">{% trans "Курс" %}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">{% trans "Євро" %}</th>
-                                    <td>{{currency.EUR}}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">{% trans "Долар" %}</th>
-                                    <td>{{currency.USD}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="border rounded my-3 p-3 pb-0 shadow-sm">
-                        <h5>{% trans "Останні новини" %}</h5>
-                        {% for article in last_news %}
-                            <a href="{% url 'article' article_id=article.id article_title=' ' %}" class="text-reset text-decoration-none">
-                                <h6 class="text-secondary fw-normal">{{article.date}}</h6>
-                                <p class="hover-text">{{article.title}}</p>
-                            </a>
-                            <hr>
-                        {% endfor %}
+                <div class="col-xl-2 border-xl-start mt-3">
+                    <div class="row justify-content-center ps-xl-1">
+                        {% get_current_language as LANGUAGE_CODE %}                            
+                        <div class="col-xl-12 col-lg-4 col-sm-6 col-12">
+                            <div class=" mb-3 border rounded shadow-sm" id="ww_190cb87bd5780" v='1.3' loc='auto'
+                                a='{"t":"horizontal","lang":"{{LANGUAGE_CODE}}","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#000000","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
+                                <a href="https://weatherwidget.org/uk/" id="ww_190cb87bd5780_u" target="_blank">Безкоштовний інформер погоди на сайт</a>
+                            </div>                    
+                            <script async src="https://app3.weatherwidget.org/js/?id=ww_190cb87bd5780"></script>
+                        </div>
+                        <div class="col-xl-12 col-lg-4 col-sm-6 col-12">
+                            <div class="h-100 pb-3">
+                                <div class="border rounded p-3 shadow-sm h-100">
+                                    <h5>{% trans "Офіційний курс НБУ" %}</h5>
+                                    <table class="table mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">{% trans "Валюта" %}</th>
+                                                <th scope="col">{% trans "Курс" %}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">{% trans "Євро" %}</th>
+                                                <td>{{currency.EUR}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">{% trans "Долар" %}</th>
+                                                <td>{{currency.USD}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-xl-12">
+                            <div class="border rounded p-3 pb-0 shadow-sm">
+                                <h5>{% trans "Останні новини" %}</h5>
+                                {% for article in last_news %}
+                                    <a href="{% url 'article' article_id=article.id article_title=' ' %}" class="text-reset text-decoration-none">
+                                        <h6 class="text-secondary fw-normal">{{article.date}}</h6>
+                                        <p class="hover-text">{{article.title}}</p>
+                                    </a>
+                                    <hr>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
