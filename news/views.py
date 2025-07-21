@@ -1,5 +1,7 @@
 import datetime
 import requests
+from asgiref.timeout import timeout
+
 from .models import *
 from .forms import SearchForm
 from django.utils import timezone
@@ -12,6 +14,7 @@ from hitcount.models import HitCount
 from hitcount.utils import get_hitcount_model
 from hitcount.views import HitCountMixin
 from django.core.paginator import Paginator
+from django.core.cache import cache
 
 
 def index(request):
@@ -23,8 +26,12 @@ def index(request):
     interviews = Article.objects.filter(article_type="interview").order_by("-date").exclude(id__in=[article.id for article in popular_articles])[:3]
     last_news = Article.objects.filter(article_type="news").order_by("-date")[:6]
 
-    currency = requests.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").json()
-    currency = {item["cc"]: round(item["rate"], 2) for item in currency if item["cc"] == "EUR" or item["cc"] == "USD"}
+    # get currency information from cache or fetch from NBU API and cache it
+    currency = cache.get("currency")
+    if not currency:
+        currency = requests.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").json()
+        currency = {item["cc"]: round(item["rate"], 2) for item in currency if item["cc"] == "EUR" or item["cc"] == "USD"}
+        cache.set("currency", currency, timeout=60*20)
 
     enemy_losses_translation = {
         "personnel_units": _("Особовий склад"),
@@ -40,11 +47,18 @@ def index(request):
         "cruise_missiles": _("Крилаті ракети"),
         "uav_systems": _("БПЛА"),
     }
-    enemy_losses = requests.get("https://russianwarship.rip/api/v2/statistics/latest").json()["data"]
-    current_day_of_war = enemy_losses["day"]
-    enemy_losses = [{"name": enemy_losses_translation[item], "losses_total": enemy_losses["stats"][item],
-                     "losses_increase": enemy_losses["increase"][item], "img_name": f"{item}.png"} for item in
-                    enemy_losses_translation]
+
+    # get enemy losses data from cache or fetch from API and cache it
+    enemy_losses = cache.get("enemy_losses")
+    current_day_of_war = cache.get("current_day_of_war")
+    if not enemy_losses:
+        enemy_losses = requests.get("https://russianwarship.rip/api/v2/statistics/latest").json()["data"]
+        current_day_of_war = enemy_losses["day"]
+        enemy_losses = [{"name": enemy_losses_translation[item], "losses_total": enemy_losses["stats"][item],
+                         "losses_increase": enemy_losses["increase"][item], "img_name": f"{item}.png"} for item in
+                        enemy_losses_translation]
+        cache.set("enemy_losses", enemy_losses, timeout=60*25)
+        cache.set("current_day_of_war", current_day_of_war, timeout=60*25)
 
     context = {
         "popular_articles": popular_articles,

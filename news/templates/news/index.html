@@ -4,6 +4,7 @@
 <html>
     <head>
     {% load i18n %}
+    {% load cache %}
     </head>
     <body>
         {% block content %}
@@ -106,14 +107,16 @@
                 </div>
                 <div class="col-xl-2 border-xl-start mt-3">
                     <div class="row justify-content-center ps-xl-1">
-                        {% get_current_language as LANGUAGE_CODE %}                            
-                        <div class="col-xl-12 col-lg-4 col-sm-6 col-12">
-                            <div class=" mb-3 border rounded shadow-sm" id="ww_190cb87bd5780" v='1.3' loc='auto'
-                                a='{"t":"horizontal","lang":"{{LANGUAGE_CODE}}","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#000000","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
-                                <a href="https://weatherwidget.org/uk/" id="ww_190cb87bd5780_u" target="_blank">Безкоштовний інформер погоди на сайт</a>
-                            </div>                    
-                            <script async src="https://app3.weatherwidget.org/js/?id=ww_190cb87bd5780"></script>
-                        </div>
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% cache 600 weather_section LANGUAGE_CODE %}                  
+                            <div class="col-xl-12 col-lg-4 col-sm-6 col-12">
+                                <div class=" mb-3 border rounded shadow-sm" id="ww_190cb87bd5780" v='1.3' loc='auto'
+                                    a='{"t":"horizontal","lang":"{{LANGUAGE_CODE}}","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#000000","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
+                                    <a href="https://weatherwidget.org/uk/" id="ww_190cb87bd5780_u" target="_blank">Безкоштовний інформер погоди на сайт</a>
+                                </div>                    
+                                <script async src="https://app3.weatherwidget.org/js/?id=ww_190cb87bd5780"></script>
+                            </div>
+                        {% endcache %}
                         <div class="col-xl-12 col-lg-4 col-sm-6 col-12">
                             <div class="h-100 pb-3">
                                 <div class="border rounded p-3 shadow-sm h-100">
