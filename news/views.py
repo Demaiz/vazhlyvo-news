@@ -136,6 +136,7 @@ def search(request):
     return render(request, "news/search.html", context)
 
 
+@cache_page(60 * 15)
 def author(request, author_name, author_id):
     author = get_object_or_404(Author, pk=author_id)
 
