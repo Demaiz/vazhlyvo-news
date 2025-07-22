@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django_ckeditor_5.widgets import CKEditor5Widget
-from hitcount.models import HitCount
+from hitcount.admin import HitCountAdmin
+from hitcount.models import HitCount, Hit
 from modeltranslation.admin import TranslationAdmin
 from .models import *
 from django.contrib.auth.admin import UserAdmin
@@ -52,3 +53,6 @@ admin.site.register(Tag)
 # unregister and register the User model to add translation fields to the admin panel
 admin.site.unregister(User)
 admin.site.register(User)
+
+# remove Hit model from the admin panel
+admin.site.unregister(Hit)
