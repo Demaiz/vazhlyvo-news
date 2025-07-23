@@ -22,7 +22,6 @@ from django.conf import settings
 from django.urls import include, path
 
 urlpatterns = ([
-    path('admin/', admin.site.urls),
     path("ckeditor5/", include('django_ckeditor_5.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-               + debug_toolbar_urls()) + i18n_patterns(path("", include("news.urls")))
+               + debug_toolbar_urls()) + i18n_patterns(path("", include("news.urls")), path('admin/', admin.site.urls))

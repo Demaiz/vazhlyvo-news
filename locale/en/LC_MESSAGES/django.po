@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-19 21:32+0300\n"
+"POT-Creation-Date: 2025-07-23 13:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\news\apps.py:7
+msgid "News"
+msgstr ""
 
 #: .\news\forms.py:5
 msgid "Search"
@@ -30,16 +34,80 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-#: .\news\models.py:24
+#: .\news\models.py:7
+msgid "User"
+msgstr ""
+
+#: .\news\models.py:8
+msgid "Photo"
+msgstr ""
+
+#: .\news\models.py:9
+msgid "Role"
+msgstr ""
+
+#: .\news\models.py:16 .\news\models.py:40
+msgid "Author"
+msgstr ""
+
+#: .\news\models.py:17
+msgid "Authors"
+msgstr ""
+
+#: .\news\models.py:21
+msgid "Name"
+msgstr ""
+
+#: .\news\models.py:28
+msgid "Tag"
+msgstr ""
+
+#: .\news\models.py:29 .\news\models.py:43
+msgid "Tags"
+msgstr ""
+
+#: .\news\models.py:34
 msgid "news"
 msgstr ""
 
-#: .\news\models.py:25
+#: .\news\models.py:35
 msgid "column"
 msgstr ""
 
-#: .\news\models.py:26
+#: .\news\models.py:36
 msgid "interview"
+msgstr ""
+
+#: .\news\models.py:38
+msgid "Title"
+msgstr ""
+
+#: .\news\models.py:39
+msgid "Text"
+msgstr ""
+
+#: .\news\models.py:41
+msgid "Date"
+msgstr ""
+
+#: .\news\models.py:42
+msgid "Image"
+msgstr ""
+
+#: .\news\models.py:44
+msgid "Article type"
+msgstr ""
+
+#: .\news\models.py:47
+msgid "by"
+msgstr ""
+
+#: .\news\models.py:51
+msgid "Article"
+msgstr ""
+
+#: .\news\models.py:52
+msgid "Articles"
 msgstr ""
 
 #: .\news\templates\news\article.html:18
@@ -90,19 +158,19 @@ msgstr "Phone"
 msgid "Важливо Новини. Усі права захищено"
 msgstr "Vazhlyvo News. All rights reserved"
 
-#: .\news\templates\news\index.html:13
+#: .\news\templates\news\index.html:14
 msgid "Втрати ворога станом на"
 msgstr "Enemy losses as of"
 
-#: .\news\templates\news\index.html:13
+#: .\news\templates\news\index.html:14
 msgid "день"
 msgstr "day"
 
-#: .\news\templates\news\index.html:53
+#: .\news\templates\news\index.html:54
 msgid "Інтерв'ю"
 msgstr "Interview"
 
-#: .\news\templates\news\index.html:76
+#: .\news\templates\news\index.html:77
 msgid "Колонки"
 msgstr "Columns"
 
@@ -110,27 +178,27 @@ msgstr "Columns"
 msgid "Інформери"
 msgstr "Informers"
 
-#: .\news\templates\news\index.html:122
+#: .\news\templates\news\index.html:123
 msgid "Офіційний курс НБУ"
 msgstr "Official NBU exchange rate"
 
-#: .\news\templates\news\index.html:126
+#: .\news\templates\news\index.html:127
 msgid "Валюта"
 msgstr "Currency"
 
-#: .\news\templates\news\index.html:127
+#: .\news\templates\news\index.html:128
 msgid "Курс"
 msgstr "Rate"
 
-#: .\news\templates\news\index.html:132
+#: .\news\templates\news\index.html:133
 msgid "Євро"
 msgstr "Euro"
 
-#: .\news\templates\news\index.html:136
+#: .\news\templates\news\index.html:137
 msgid "Долар"
 msgstr "Dollar"
 
-#: .\news\templates\news\index.html:146
+#: .\news\templates\news\index.html:147
 msgid "Останні новини"
 msgstr "Latest news"
 
@@ -138,51 +206,51 @@ msgstr "Latest news"
 msgid "За Вашим запитом нічого не знайдено"
 msgstr "No results found for your query"
 
-#: .\news\views.py:30
+#: .\news\views.py:37
 msgid "Особовий склад"
 msgstr "Personnel"
 
-#: .\news\views.py:31
+#: .\news\views.py:38
 msgid "Танки"
 msgstr "Tanks"
 
-#: .\news\views.py:32
+#: .\news\views.py:39
 msgid "ББМ"
 msgstr "AFVs"
 
-#: .\news\views.py:33
+#: .\news\views.py:40
 msgid "Артилерія"
 msgstr "Artillery"
 
-#: .\news\views.py:34
+#: .\news\views.py:41
 msgid "РСЗВ"
 msgstr "MLRS"
 
-#: .\news\views.py:35
+#: .\news\views.py:42
 msgid "ППО"
 msgstr "Air Defense"
 
-#: .\news\views.py:36
+#: .\news\views.py:43
 msgid "Літаки"
 msgstr "Aircraft"
 
-#: .\news\views.py:37
+#: .\news\views.py:44
 msgid "Гелікоптери"
 msgstr "Helicopters"
 
-#: .\news\views.py:38
+#: .\news\views.py:45
 msgid "Заправна техніка"
 msgstr "Fuel trucks"
 
-#: .\news\views.py:39
+#: .\news\views.py:46
 msgid "Кораблі"
 msgstr "Ships"
 
-#: .\news\views.py:40
+#: .\news\views.py:47
 msgid "Крилаті ракети"
 msgstr "Cruise missiles"
 
-#: .\news\views.py:41
+#: .\news\views.py:48
 msgid "БПЛА"
 msgstr "UAVs"
 

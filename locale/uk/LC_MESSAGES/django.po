@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-19 21:32+0300\n"
+"POT-Creation-Date: 2025-07-23 14:09+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,10 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: .\news\apps.py:7
+msgid "News"
+msgstr "Новини"
 
 #: .\news\forms.py:5
 msgid "Search"
@@ -33,17 +37,81 @@ msgstr "Від"
 msgid "To"
 msgstr "До"
 
-#: .\news\models.py:24
+#: .\news\models.py:7
+msgid "User"
+msgstr "Користувач"
+
+#: .\news\models.py:8
+msgid "Photo"
+msgstr "Фото"
+
+#: .\news\models.py:9
+msgid "Role"
+msgstr "Роль"
+
+#: .\news\models.py:16 .\news\models.py:40
+msgid "Author"
+msgstr "Автор"
+
+#: .\news\models.py:17
+msgid "Authors"
+msgstr "Автори"
+
+#: .\news\models.py:21
+msgid "Name"
+msgstr "Назва"
+
+#: .\news\models.py:28
+msgid "Tag"
+msgstr "Тег"
+
+#: .\news\models.py:29 .\news\models.py:43
+msgid "Tags"
+msgstr "Теги"
+
+#: .\news\models.py:34
 msgid "news"
-msgstr ""
+msgstr "новина"
 
-#: .\news\models.py:25
+#: .\news\models.py:35
 msgid "column"
-msgstr ""
+msgstr "колонка"
 
-#: .\news\models.py:26
+#: .\news\models.py:36
 msgid "interview"
-msgstr ""
+msgstr "інтерв'ю"
+
+#: .\news\models.py:38
+msgid "Title"
+msgstr "Заголовок"
+
+#: .\news\models.py:39
+msgid "Text"
+msgstr "Текст"
+
+#: .\news\models.py:41
+msgid "Date"
+msgstr "Дата"
+
+#: .\news\models.py:42
+msgid "Image"
+msgstr "Зображення"
+
+#: .\news\models.py:44
+msgid "Article type"
+msgstr "Тип статті"
+
+#: .\news\models.py:47
+msgid "by"
+msgstr "стаття написана автором"
+
+#: .\news\models.py:51
+msgid "Article"
+msgstr "Стаття"
+
+#: .\news\models.py:52
+msgid "Articles"
+msgstr "Статті"
 
 #: .\news\templates\news\article.html:18
 msgid "Автор"
@@ -93,19 +161,19 @@ msgstr ""
 msgid "Важливо Новини. Усі права захищено"
 msgstr ""
 
-#: .\news\templates\news\index.html:13
+#: .\news\templates\news\index.html:14
 msgid "Втрати ворога станом на"
 msgstr ""
 
-#: .\news\templates\news\index.html:13
+#: .\news\templates\news\index.html:14
 msgid "день"
 msgstr ""
 
-#: .\news\templates\news\index.html:53
+#: .\news\templates\news\index.html:54
 msgid "Інтерв'ю"
 msgstr ""
 
-#: .\news\templates\news\index.html:76
+#: .\news\templates\news\index.html:77
 msgid "Колонки"
 msgstr ""
 
@@ -113,27 +181,27 @@ msgstr ""
 msgid "Інформери"
 msgstr ""
 
-#: .\news\templates\news\index.html:122
+#: .\news\templates\news\index.html:123
 msgid "Офіційний курс НБУ"
 msgstr ""
 
-#: .\news\templates\news\index.html:126
+#: .\news\templates\news\index.html:127
 msgid "Валюта"
 msgstr ""
 
-#: .\news\templates\news\index.html:127
+#: .\news\templates\news\index.html:128
 msgid "Курс"
 msgstr ""
 
-#: .\news\templates\news\index.html:132
+#: .\news\templates\news\index.html:133
 msgid "Євро"
 msgstr ""
 
-#: .\news\templates\news\index.html:136
+#: .\news\templates\news\index.html:137
 msgid "Долар"
 msgstr ""
 
-#: .\news\templates\news\index.html:146
+#: .\news\templates\news\index.html:147
 msgid "Останні новини"
 msgstr ""
 
@@ -141,51 +209,51 @@ msgstr ""
 msgid "За Вашим запитом нічого не знайдено"
 msgstr ""
 
-#: .\news\views.py:30
+#: .\news\views.py:37
 msgid "Особовий склад"
 msgstr ""
 
-#: .\news\views.py:31
+#: .\news\views.py:38
 msgid "Танки"
 msgstr ""
 
-#: .\news\views.py:32
+#: .\news\views.py:39
 msgid "ББМ"
 msgstr ""
 
-#: .\news\views.py:33
+#: .\news\views.py:40
 msgid "Артилерія"
 msgstr ""
 
-#: .\news\views.py:34
+#: .\news\views.py:41
 msgid "РСЗВ"
 msgstr ""
 
-#: .\news\views.py:35
+#: .\news\views.py:42
 msgid "ППО"
 msgstr ""
 
-#: .\news\views.py:36
+#: .\news\views.py:43
 msgid "Літаки"
 msgstr ""
 
-#: .\news\views.py:37
+#: .\news\views.py:44
 msgid "Гелікоптери"
 msgstr ""
 
-#: .\news\views.py:38
+#: .\news\views.py:45
 msgid "Заправна техніка"
 msgstr ""
 
-#: .\news\views.py:39
+#: .\news\views.py:46
 msgid "Кораблі"
 msgstr ""
 
-#: .\news\views.py:40
+#: .\news\views.py:47
 msgid "Крилаті ракети"
 msgstr ""
 
-#: .\news\views.py:41
+#: .\news\views.py:48
 msgid "БПЛА"
 msgstr ""
 
@@ -196,3 +264,21 @@ msgstr "Українська"
 #: .\vazhlyvo\settings.py:125
 msgid "English"
 msgstr "English"
+
+msgid "Blacklisted IPs"
+msgstr "Заблоковані IP"
+
+msgid "Blacklisted User Agents"
+msgstr "Заблоковані User Agent"
+
+msgid "hit counts"
+msgstr "Лічильники переглядів"
+
+msgid "hit count"
+msgstr "лічильник переглядів"
+
+msgid "Blacklisted IP"
+msgstr "заблоковані IP"
+
+msgid "Blacklisted User Agent"
+msgstr "заблоковані User Agent"
