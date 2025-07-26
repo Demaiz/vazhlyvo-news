@@ -1,4 +1,4 @@
-Django==5.2.4
+Django==4.2.23
 django-ckeditor-5==0.2.18
 django-hitcount==1.3.5
 django-resized==1.0.3
@@ -6,3 +6,6 @@ django-modeltranslation==0.19.15
 python-decouple==3.8
 requests==2.32.4
 django-debug-toolbar==5.2.0
+django-bootstrap-v5==1.0.11
+mysqlclient==2.2.7
+django-redis==6.0.0
