@@ -140,8 +140,8 @@ def search(request):
 def author(request, author_name, author_id):
     author = get_object_or_404(Author, pk=author_id)
 
-    if author.user.__str__() != author_name:
-        return redirect("author", author, author_id)
+    if f"{author.user.first_name}_{author.user.last_name}" != author_name:
+        return redirect("author", f"{author.user.first_name}_{author.user.last_name}", author_id)
 
     author_articles = Article.objects.filter(author=author).order_by("-date")
 
